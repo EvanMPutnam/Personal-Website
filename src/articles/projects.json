@@ -1,0 +1,19 @@
+{
+  "Articles": [
+    {
+      "title": "My first Website!",
+      "summary": "Here is a summary for my website!",
+      "text": "<div class=\"ext\">Hello!</div>"
+    },
+    {
+      "title": "Here is another post",
+      "summary": "Here is another summary for my website!",
+      "text": "<div class=\"ext\">Hello!</div><div class=\"ext\">Hello!</div> <h1>BOSS</h1>"
+    },
+    {
+      "title": "Test Script",
+      "summary": "This is just a test of upload capabilities",
+      "text": "<h1>Welcome to my website!</h1>\n\n<h2>About Me</h2>\n\n<p>My name is Evan Putnam.  I am a Software Developer passionate about the Aerospace industry.</p>\n\n<h2>Skills</h2>\n\n<p>C/C++, Python, Agile, DevOps, etc.</p>\n\n<h2>Purpose</h2>\n\n<p>This is really just an example page.  Here is some python code!</p>\n\n<pre><code>import math  \nx = math.sqrt()  \nprint(x * 3)  \n</code></pre>\n\n<p>Steely eyed missile man</p>\n\n<p><img src=\"images/danger.png\" alt=\"Image of DANGER ZONE\" /></p>\n"
+    }
+  ]
+}
