@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 
-const loaded_articles = require("./articles/projects.json")
-
+const loadedArticles = require("./articles/projects.json")
 
 class Article extends React.Component {
     constructor (props) {
@@ -39,6 +38,7 @@ class Article extends React.Component {
             <RelevantArticleContainer />,
             document.getElementById('articlePosts')
         );
+        window.scroll(0, 0)
     }
 }
 
@@ -77,16 +77,19 @@ class ArticleSummarySection extends React.Component {
             <Article article={properties} />,
             document.getElementById('articlePosts')
         );
+        window.scroll(0, 0)
     }
 }
 
 class RelevantArticleContainer extends React.Component {
     render() {
+        const listItems = loadedArticles["Articles"].map((article) =>
+            <ArticleSummarySection article={article}/>
+        );
+        listItems.reverse();
         return (
             <div className="Article-Summary-Container">
-                <ArticleSummarySection article={loaded_articles["Articles"][0]}/>
-                <ArticleSummarySection article={loaded_articles["Articles"][1]}/>
-                <ArticleSummarySection article={loaded_articles["Articles"][2]}/>
+                {listItems}
             </div>
         );
     };
