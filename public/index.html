@@ -19,6 +19,15 @@
         border-radius: 50%;
         padding: 3%;
       }
+
+      .popular_button {
+        background-color: white;
+        display: block;
+        width: 100%;
+        text-align: left;
+        border-color: transparent;
+      }
+      
     </style>
 
     <meta
@@ -64,7 +73,7 @@
     <div class="w3-content" style="max-width:1400px">
       <!-- Header -->
       <header class="w3-container w3-center w3-padding-32"> 
-        <h1><b>MY BLOG</b></h1>
+        <h1><b>Welcome</b></h1>
         <p>You have stumbled upon Evan Putnam's website!  Glad you are here.</p>
       </header>
       
@@ -99,12 +108,7 @@
             <div class="w3-container w3-padding">
               <h4>Popular Posts</h4>
             </div>
-            <ul class="w3-ul w3-hoverable w3-white">
-              <li class="w3-padding-16">
-                <span class="w3-large">Lorem</span><br>
-                <span>Sed mattis nunc</span>
-              </li>
-            </ul>
+            <div id="popularPosts"></div>
           </div>
           <hr> 
         
@@ -122,7 +126,7 @@
       
       <!-- END GRID -->
       </div><br>
-      
+      <div id="forwardBackButtons"></div>
     <!-- END w3-content -->
     </div>
     
