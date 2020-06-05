@@ -17,6 +17,12 @@
       "date": "April 7, 2014",
       "summary": "This is just a test of upload capabilities",
       "text": "<h1>Welcome to my website!</h1>\n\n<h2>About Me</h2>\n\n<p>My name is Evan Putnam.  I am a Software Developer passionate about the Aerospace industry.</p>\n\n<h2>Skills</h2>\n\n<p>C/C++, Python, Agile, DevOps, etc.</p>\n\n<h2>Purpose</h2>\n\n<p>This is really just an example page.  Here is some python code!</p>\n\n<pre><code>import math  \nx = math.sqrt()  \nprint(x * 3)  \n</code></pre>\n\n<p>Steely eyed missile man</p>\n\n<p><img src=\"images/danger.png\" alt=\"Image of DANGER ZONE\" /></p>\n"
+    },
+    {
+      "title": "How This Website Was Made",
+      "date": "04/06/2020",
+      "summary": "Want to see how I made this website?  Come on down!",
+      "text": "<p>I made this over the course of about a week, off and on, </p>\n\n<h2>Blogging</h2>\n\n<p>The blog items are just really REACT components with text being read in from a JSON file.  That master JSON </p>\n\n<h3>Python</h3>\n\n<p>For actually writing the posts I just use markdown.  Its super simple and is easily converted to html using libraries found online.  To convert the files and add them to the json list I made a quick python utility file that </p>\n\n<ol>\n<li>Converts the input markdown file to html.</li>\n<li>Moves any new images in the images folder over to the src folder.</li>\n<li></li>\n</ol>\n"
     }
   ]
 }
