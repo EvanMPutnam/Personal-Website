@@ -16,7 +16,7 @@ class Article extends React.Component {
 
     render() {
         return (
-            <div className="Article">
+            <div className="Article article_block">
                 <div className="w3-card-4 w3-margin w3-white">
                     <div className="w3-container">
                         <h3><b>{this.props.article['title']}</b></h3>
