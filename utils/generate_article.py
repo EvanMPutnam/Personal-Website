@@ -1,3 +1,5 @@
+from distutils.dir_util import copy_tree
+
 import markdown2
 import argparse
 import datetime
@@ -6,11 +8,20 @@ import json
 import os
 
 '''
+Expects the working directory to be setup like the following...
+
+    WorkingDirectory:
+        EvanMPutnam.github.io           - Build files (Git repo)
+        WebsiteSRC                      - Src files (Git repo)
+
 1. Converts the input markdown file to html and adds an entry to the json object.
 2. Moves any new images in the images folder over to the src folder.
 3. Rebuilds the application with the new images and json file.
 4. Pushes off to github with a commit message detailing article name.
 '''
+
+BUILD_DIR = "../EvanMPutnam.github.io"
+BASE_DIR = os.getcwd()
 
 # ###########################################################
 # Description:      Converts a markdown file to html and
@@ -88,7 +99,8 @@ def build_application(base_dir):
 # Description:      Does all the git needed to push it off.
 # ###########################################################
 def git_commit_and_push(base_dir, commit_message):
-    os.chdir(base_dir + "/../")
+    os.chdir(base_dir)
+    print(os.getcwd())
     os.system("git add *")
     os.system("git commit -m \"" + commit_message +  "\"")
     os.system("git push")
@@ -111,6 +123,12 @@ def _bool_argument(val):
 
 
 if __name__ == "__main__":
+
+
+
+
+    import pdb
+    pdb.set_trace()
 
     # Specify arguments
     parser = argparse.ArgumentParser(description = "Converts markdown to html and pushes new build to site.")
@@ -136,9 +154,10 @@ if __name__ == "__main__":
 
     if args.update_only == False:
         # Build the application with NPM!
-        base_dir = os.getcwd()
-        build_application(base_dir)
+        build_application(BASE_DIR)
+
+        copy_tree(BASE_DIR + "/../build", BUILD_DIR)
 
         # Commit and push!
         commit_message = "Committing article " + args.name
-        git_commit_and_push(base_dir, commit_message)
+        git_commit_and_push(BUILD_DIR, commit_message)
