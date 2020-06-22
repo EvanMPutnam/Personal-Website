@@ -1,16 +1,14 @@
+At its core this website is just a React website with a number of configured components.
+This is not meant to be a summary of how react works, or an introduction to coding but is here for those interested.
 
-
-
-I was debating calling this article "Making a blog without server side code"...
-
-## Technology
+# Technology:
 * React for generating UI elements (Really the backbone of the whole operation).
 * Python for some utility files
 * Markdown files for articles
 
-
-## Blogging
-The blog items are just really REACT components with text being read in from a JSON file.  That master JSON file has a few tags that are populated.  The code for it is pretty simple.
+# Blogging:
+The big thing about the website is the blogging capability.  There is no server side code and relies on re-compiling the website with npm and pushes the build via git.  The blog items are just really React components with text being read in from a json file.  That master json file has a few tags that are populated.  The code for it is pretty simple.
+Note that the syntax highlighting for React is a little weird.
 
 ```javascript
 import React from 'react';
@@ -214,10 +212,11 @@ ReactDOM.render(
 
 ```
 
-There is also some logic in here to completely handle the max number of items on a given page.
+There is also some logic in here to completely handle the max number of items on a given page.  It just works by picking a few items
+depending on the page index the user is on.
 
 
-### Python
+## Python:
 For actually writing the posts I just use markdown.  Its super simple and is easily converted to html using libraries found online.  To convert the files and add them to the json list I made a quick python utility file that does the following:
 
 1. Converts the input markdown file to html and adds an entry to the json object.

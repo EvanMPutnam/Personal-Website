@@ -91,16 +91,13 @@ def copy_over_images(source_folder, destination_folder):
 # ###########################################################
 # Description:      Builds the application with NPM.
 # ###########################################################
-def build_application(base_dir):
-    os.chdir(base_dir + "/../")
+def build_application():
     os.system("npm run build")
 
 # ###########################################################
 # Description:      Does all the git needed to push it off.
 # ###########################################################
-def git_commit_and_push(base_dir, commit_message):
-    os.chdir(base_dir)
-    print(os.getcwd())
+def git_commit_and_push(commit_message):
     os.system("git add *")
     os.system("git commit -m \"" + commit_message +  "\"")
     os.system("git push")
@@ -123,12 +120,6 @@ def _bool_argument(val):
 
 
 if __name__ == "__main__":
-
-
-
-
-    import pdb
-    pdb.set_trace()
 
     # Specify arguments
     parser = argparse.ArgumentParser(description = "Converts markdown to html and pushes new build to site.")
@@ -154,10 +145,12 @@ if __name__ == "__main__":
 
     if args.update_only == False:
         # Build the application with NPM!
-        build_application(BASE_DIR)
+        os.chdir(BASE_DIR + "/../")
+        build_application()
 
         copy_tree(BASE_DIR + "/../build", BUILD_DIR)
 
         # Commit and push!
         commit_message = "Committing article " + args.name
-        git_commit_and_push(BUILD_DIR, commit_message)
+        os.chdir(BUILD_DIR)
+        git_commit_and_push(commit_message)
